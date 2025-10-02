@@ -1,0 +1,42 @@
+:root{
+  --primary:#2b7a3a;
+  --muted:#666;
+  --card:#fff;
+  --bg:#f7f7f7;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:var(--bg); color:#222; padding:24px;
+}
+.container{max-width:1100px;margin:0 auto}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+header h1{color:var(--primary);margin:0}
+nav a{color:var(--primary);text-decoration:none}
+
+main{display:flex;gap:18px}
+#menu{flex:1;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.menu-item{background:var(--card);padding:12px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.menu-item h4{margin:0 0 6px 0}
+.menu-item p{margin:0 0 8px;color:var(--muted);font-size:14px}
+.menu-item button{background:var(--primary);color:#fff;border:none;padding:8px 10px;border-radius:6px;cursor:pointer}
+
+#cart{width:300px;background:var(--card);padding:12px;border-radius:8px;box-shadow:0 1px 6px rgba(0,0,0,0.08)}
+#cart h3{margin-top:0}
+.cart-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px dashed #eee}
+.cart-row input[type=number]{padding:4px}
+#checkout{display:block;width:100%;margin-top:12px;padding:10px;background:var(--primary);color:#fff;border:none;border-radius:6px;cursor:pointer}
+
+.order-card{background:var(--card);padding:12px;border-radius:8px;margin-bottom:10px}
+.order-card h4{margin:0 0 6px 0}
+
+.auth-container{display:flex;gap:18px;justify-content:center;align-items:flex-start;margin-top:40px}
+.auth-box{background:var(--card);padding:18px;border-radius:8px;width:320px;box-shadow:0 1px 6px rgba(0,0,0,0.06)}
+.auth-box input{display:block;width:100%;padding:8px;margin:8px 0;border:1px solid #ddd;border-radius:6px}
+.auth-box button{background:var(--primary);color:#fff;border:none;padding:10px;border-radius:6px;cursor:pointer}
+
+@media (max-width:800px){
+  main{flex-direction:column}
+  #cart{width:100%}
+  .auth-container{flex-direction:column;align-items:center}
+}
