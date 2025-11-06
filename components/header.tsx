@@ -29,6 +29,9 @@ export function Header() {
             <Link href="/menu" className="text-base font-semibold text-white hover:text-[#f59e0b] transition-colors">
               Menu
             </Link>
+            <Link href="/about" className="text-base font-semibold text-white hover:text-[#f59e0b] transition-colors">
+              About Us
+            </Link>
             <Link href="/contact" className="text-base font-semibold text-white hover:text-[#f59e0b] transition-colors">
               Contact Us
             </Link>

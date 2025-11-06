@@ -18,7 +18,7 @@ export interface Order {
   customerPhone: string
   items: { item: MenuItem; quantity: number }[]
   total: number
-  status: "Food Processing" | "Out for delivery" | "Delivered"
+  status: "Food Processing" | "Ready for Pickup" | "Out for Delivery" | "Delivered" | "Cancelled"
   date: string
 }
 

@@ -25,6 +25,9 @@ export function Footer() {
               <Link href="/menu" className="text-white/90 hover:text-white transition-colors underline">
                 Menu
               </Link>
+              <Link href="/about" className="text-white/90 hover:text-white transition-colors underline">
+                About Us
+              </Link>
               <Link href="/contact" className="text-white/90 hover:text-white transition-colors underline">
                 Contact Us
               </Link>

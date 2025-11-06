@@ -11,7 +11,15 @@ export default function OrdersPage() {
   const { orders, updateOrderStatus } = useMenu()
   const { toast } = useToast()
 
-  const handleStatusChange = (orderId: string, newStatus: "Food Processing" | "Out for delivery" | "Delivered") => {
+  const orderStatuses = [
+    "Food Processing",
+    "Ready for Pickup",
+    "Out for Delivery",
+    "Delivered",
+    "Cancelled"
+  ] as const;
+
+  const handleStatusChange = (orderId: string, newStatus: string) => {
     updateOrderStatus(orderId, newStatus)
     toast({
       title: "Status Updated",
@@ -23,10 +31,14 @@ export default function OrdersPage() {
     switch (status) {
       case "Food Processing":
         return "bg-blue-500"
-      case "Out for delivery":
+      case "Ready for Pickup":
+        return "bg-yellow-500"
+      case "Out for Delivery":
         return "bg-orange-500"
       case "Delivered":
         return "bg-green-500"
+      case "Cancelled":
+        return "bg-red-500"
       default:
         return "bg-gray-500"
     }
