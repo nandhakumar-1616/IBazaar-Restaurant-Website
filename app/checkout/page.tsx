@@ -38,23 +38,21 @@ export default function CheckoutPage() {
       return
     }
 
-    // Create order
-    addOrder({
-      customerName: formData.name,
-      customerAddress: formData.address,
-      customerPhone: formData.phone,
-      items: cartItems,
-      total: getTotalPrice(),
-      status: "Food Processing",
-    })
+    // Validate form
+    if (!formData.name || !formData.address || !formData.phone) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields",
+        variant: "destructive",
+      })
+      return
+    }
 
-    toast({
-      title: "Order Placed!",
-      description: "Your order has been successfully placed",
-    })
+    // Save checkout info to localStorage
+    localStorage.setItem('checkoutInfo', JSON.stringify(formData))
 
-    clearCart()
-    router.push("/")
+    // Redirect to payment page
+    router.push("/checkout/payment")
   }
 
   if (cartItems.length === 0) {

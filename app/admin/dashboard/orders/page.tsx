@@ -19,7 +19,7 @@ export default function OrdersPage() {
     "Cancelled"
   ] as const;
 
-  const handleStatusChange = (orderId: string, newStatus: string) => {
+  const handleStatusChange = (orderId: string, newStatus: "Food Processing" | "Ready for Pickup" | "Out for Delivery" | "Delivered" | "Cancelled") => {
     updateOrderStatus(orderId, newStatus)
     toast({
       title: "Status Updated",
@@ -85,7 +85,7 @@ export default function OrdersPage() {
                     <Select
                       value={order.status}
                       onValueChange={(value) =>
-                        handleStatusChange(order.id, value as "Food Processing" | "Out for delivery" | "Delivered")
+                        handleStatusChange(order.id, value as "Food Processing" | "Ready for Pickup" | "Out for Delivery" | "Delivered" | "Cancelled")
                       }
                     >
                       <SelectTrigger className="w-48 border-[#0891b2]/30 focus:border-[#0891b2]">
@@ -98,16 +98,28 @@ export default function OrdersPage() {
                             Food Processing
                           </div>
                         </SelectItem>
-                        <SelectItem value="Out for delivery">
+                        <SelectItem value="Ready for Pickup">
+                          <div className="flex items-center gap-2">
+                            <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                            Ready for Pickup
+                          </div>
+                        </SelectItem>
+                        <SelectItem value="Out for Delivery">
                           <div className="flex items-center gap-2">
                             <div className="w-3 h-3 rounded-full bg-orange-500" />
-                            Out for delivery
+                            Out for Delivery
                           </div>
                         </SelectItem>
                         <SelectItem value="Delivered">
                           <div className="flex items-center gap-2">
                             <div className="w-3 h-3 rounded-full bg-green-500" />
                             Delivered
+                          </div>
+                        </SelectItem>
+                        <SelectItem value="Cancelled">
+                          <div className="flex items-center gap-2">
+                            <div className="w-3 h-3 rounded-full bg-red-500" />
+                            Cancelled
                           </div>
                         </SelectItem>
                       </SelectContent>
